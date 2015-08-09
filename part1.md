@@ -109,8 +109,9 @@ and therefore pose a problem in the format usability.
 
 ### Is there a solution to this situation?
 Yes and no. The current second version of the CTF format is completely rigid
-and does not allow any changes to the domain sizes. In case that the format
-would adopt the self-describing principle
+and does not allow any changes to the domain sizes. In case that the next
+iteration of the format would adopt the self-describing principle, all
+domain-related limitations would be solved. 
 
 ## What else can we do with CTF?
 ### Kernel debugger pretty-printing
