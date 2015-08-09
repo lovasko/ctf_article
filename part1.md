@@ -60,7 +60,7 @@ applies in a situation when your `size_t` is 64, 37 or 2 bits wide. This is a
 very powerful feature that allows CTF to be a unifying layer on top of
 different platforms, always serving the correct type metadata. 
 
-### Read the `clock_res/something` of a kernel dump
+### Read the `clock_res` of a kernel dump
 FreeBSD stores its internal clock resolution in a kernel global variable
 `clock_res`. An implementation of the CTF format, `libctf` [3], along with the
 Kernel Virtual Memory library `libkvm` allow us to write a small utility that
