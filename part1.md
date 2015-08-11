@@ -128,11 +128,11 @@ its inception many decades ago. Since the CTF data set is available for the
 kernel image and its modules out of the box, it can be used to provide in-depth
 view of the data structures that are being used by the kernel.
 
-### Status quo
+#### Status quo
 Currently, DDB offers two techniques to access the memory which are affected by
 many limitations, either lack of modularity or excessive straightforwardness.
 
-#### Low-level examination
+##### Low-level examination
 The 'examine' command in conjecture with its options such as
 'x' or 'f' is used to examine optional number of memory blocks. The
 fact that the user must specify the encoding of the memory is a .
@@ -142,7 +142,7 @@ bit or byte needs to be analysed, but falls short in examining complex
 structures, as it literally forces user to use pen and paper to map the output
 values of the data structure.
 
-#### Hard-coded structures
+##### Hard-coded structures
 The 'show' command improves upon the user-facing simplicity of th 'examine'
 command by providing support for pretty-printing a restricted set of
 data structures. Such structures are e.g. 'struct bio' or 'struct mutex'.
@@ -157,7 +157,7 @@ The logical extension of the 'show' command is to provide a way of encoding
 type information during the compilation process and being able to read such
 data later during the debugger runtime - a task that CTF is a great fit for -
 so that there will be no need to alter the DDB source code in case of a
-structure change in the kernel code-base. We therefore implemented such
+structure change in the kernel code-base.
 
 ### Architecture-agnostic kernel virtual memory access
 FreeBSD features many popular tools that enable the user to study the behaviour
