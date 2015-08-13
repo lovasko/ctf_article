@@ -42,7 +42,6 @@ the `.strtab`, `.symtab` and `.SUNW_ctf` sections.
 ### Graph CTF vs DWARF on-disk size
 
 
-
 ### What does this mean?
 The observable drop in on-disk space requirements allow CTF to be a debugging
 format of choice in situations where this metric is of a critical importance -
@@ -50,11 +49,11 @@ examples of such might be all production systems or embedded devices.
 
 ### How was this computed?
 In order to encapsulate the logic of size measurements, we created a utility
-`ctfmemusage` [2] that offers size comparisons between the on-disk size of CTF
+`ctfmemusage` [1] that offers size comparisons between the on-disk size of CTF
 data set and the DWARF data set.
 Moreover, it is possible to measure the ratio between the on-disk and in-memory
 representations of the CTF implementation. As of now, the in-memory inflation
-of `libctf` is approximately XYZ with with variance of XYZ on a set of XYZ
+of `libctf` [2] is approximately XYZ with with variance of XYZ on a set of XYZ
 samples.
 
 ## How does CTF behave on different architectures?
@@ -66,7 +65,7 @@ different platforms, always serving the correct type metadata.
 
 ### Read the `clock_res` of a kernel dump
 FreeBSD stores its internal clock resolution in a kernel global variable
-`clock_res`. An implementation of the CTF format, `libctf` [3], along with the
+`clock_res`. An implementation of the CTF format, `libctf`, along with the
 Kernel Virtual Memory library `libkvm` allow us to write a small utility that
 reads the value of the `clock_res` symbol of any core dump.
 
@@ -79,7 +78,7 @@ kvm_read(kvm_handle, clock_res.address, &result, clock_res.size);
 
 #### Notes on pseudocode
 A real implementation of such program is indeed possible and does not differ
-from the pseudocode significantly. A full source can be found at [1].
+from the pseudocode significantly. A full source can be found at [3].
 
 Of course, the specific variable, in our case the `clock_res`, was chosen
 fairly randomly. The same code can be used to inspect any other kernel
@@ -172,7 +171,7 @@ in the example with the kernel dump variable `clock_res`, CTF can be used to
 provide the abstraction layer above the architecture differences, and the stat
 tools can gain leverage by applying this method. 
 
-[1] TBD
-[2] https://github.com/lovasko/ctfmemusage
-[3] https://github.com/lovasko/libctf
+[1] https://github.com/lovasko/ctfmemusage
+[2] https://github.com/lovasko/libctf
+[3] https://github.com/lovasko/clock_res_example 
 
