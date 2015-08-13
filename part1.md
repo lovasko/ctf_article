@@ -122,8 +122,8 @@ domain-related limitations would be solved.
 ### Kernel debugger pretty-printing
 Memory correctness plays the key role in any algorithm. Being able to swiftly
 and efficiently examine arbitrarily complex data structures is a mandatory
-trait of every modern toolchain. The GNU Debugger 'gdb', Modular Debugger
-'mdb' and the LLVM Debugger 'lldb' fulfil the expectations with respect
+trait of every modern toolchain. The GNU Debugger `gdb`, Modular Debugger
+`mdb` and the LLVM Debugger `lldb` fulfil the expectations with respect
 to userland processes. Unfortunately, the kernel debugger DDB on FreeBSD (and
 other systems using it) has been shipped without such functionality from
 its inception many decades ago. Since the CTF data set is available for the
@@ -135,8 +135,8 @@ Currently, DDB offers two techniques to access the memory which are affected by
 many limitations, either lack of modularity or excessive straightforwardness.
 
 ##### Low-level examination
-The 'examine' command in conjecture with its options such as
-'x' or 'f' is used to examine optional number of memory blocks. The
+The `examine` command in conjecture with its options such as
+`x` or `f` is used to examine optional number of memory blocks. The
 fact that the user must specify the encoding of the memory is a .
 
 This feature of DDB is undoubtedly important in scenarios when a specific
@@ -145,9 +145,9 @@ structures, as it literally forces user to use pen and paper to map the output
 values of the data structure.
 
 ##### Hard-coded structures
-The 'show' command improves upon the user-facing simplicity of th 'examine'
+The `show` command improves upon the user-facing simplicity of th `examine`
 command by providing support for pretty-printing a restricted set of
-data structures. Such structures are e.g. 'struct bio' or 'struct mutex'.
+data structures. Such structures are e.g. `struct bio` or `struct mutex`.
 
 The problem with this approach lies in its _code change linearity_: every
 time a data structures member changes, the corresponding code in DDB needs to
@@ -155,7 +155,7 @@ adapt. The same applies in situations when a new data structure is introduced -
 a new pretty-printing code needs to be written.
 
 #### CTF-enabled approach
-The logical extension of the 'show' command is to provide a way of encoding
+The logical extension of the `show` command is to provide a way of encoding
 type information during the compilation process and being able to read such
 data later during the debugger runtime - a task that CTF is a great fit for -
 so that there will be no need to alter the DDB source code in case of a
