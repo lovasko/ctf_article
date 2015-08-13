@@ -36,9 +36,12 @@ and source code lines, macro information and address ranges among others. But
 the area where CTF shines is the on-disk size. The following comparison was
 performed on a FreeBSD 10.0-RELEASE with the GENERIC kernel. Being fair, only
 the `.debug_info` and `.debug_str` ELF sections are being counted into the
-DWARF overall sum.
+DWARF overall sum. The CTF storage needs are computed as the sum of sizes of
+the `.strtab`, `.symtab` and `.SUNW_ctf` sections.
 
 ### Graph CTF vs DWARF on-disk size
+
+
 
 ### What does this mean?
 The observable drop in on-disk space requirements allow CTF to be a debugging
@@ -51,7 +54,8 @@ In order to encapsulate the logic of size measurements, we created a utility
 data set and the DWARF data set.
 Moreover, it is possible to measure the ratio between the on-disk and in-memory
 representations of the CTF implementation. As of now, the in-memory inflation
-is approximately XYZ with with variance of XYZ on a set of XYZ samples.
+of `libctf` is approximately XYZ with with variance of XYZ on a set of XYZ
+samples.
 
 ## How does CTF behave on different architectures?
 The best way to describe its behaviour is to say that CTF always follows the
@@ -106,9 +110,7 @@ and therefore pose a problem in the format usability.
 
 
 #### Type kind ID limitation within C standards
-C89 - does not have restrict, C11 needs new _Atomic qualifier
-
-### How did you get these numbers? (toolset exploration)
+C89 - does not have restrict, C99 current, C11 needs new _Atomic qualifier
 
 ### Is there a solution to this situation?
 Yes and no. The current second version of the CTF format is completely rigid
