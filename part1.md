@@ -6,7 +6,7 @@ that have no other metadata attached. By knowing the base type attributes such
 as the name, encoding and the byte size of an integer, we are able to correctly
 assign name to a piece of memory and render the bytes appropriately - as a signed
 or an unsigned value. Understanding more complex types such as unions or
-structs, opens the possiblity to compose the base types, identify the offsets of members
+structs, opens the possibility to compose the base types, identify the offsets of members
 and recursively dive into each member type. Such traversal and further
 interpretation is transformable into a useful tool for programmers and
 sysadmins alike. This article will focus on one of the type information
